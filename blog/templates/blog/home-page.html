@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/denis.jpeg" %}" alt="Denis Martin Budinski - The Author of this Blog">
+        </header>
+        <p>Welcome to my blog. I am Denis Martin Budinski, a software developer and a writer. I write about software development, programming, and other related topics. I hope you enjoy reading my posts.</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Posts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>I am a software developer and a writer. I write about software development, programming, and other related topics. I also write about my experiences as a software developer and a writer.</p>
+        <p>I hope you enjoy reading my posts.</p>
+    </section>
+{% endblock %}
